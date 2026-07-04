@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Question ❤️</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        margin:0;
+        background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+        text-align:center;
+    }
+    .card{
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        width:90%;
+        max-width:400px;
+    }
+    button{
+        padding:12px 20px;
+        margin:10px;
+        border:none;
+        border-radius:10px;
+        font-size:16px;
+        cursor:pointer;
+    }
+    .yes{background:#4CAF50;color:white;}
+    .no{background:#f44336;color:white;position:relative;}
+    input{
+        width:90%;
+        padding:10px;
+        margin-top:15px;
+        border-radius:8px;
+        border:1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+
+<div class="card" id="page1">
+    <h2>I love you ❤️<br>Do you love me back?</h2>
+    <button class="yes" onclick="nextPage(2)">Yes 💖</button>
+    <button class="no" id="noBtn">No 😢</button>
+</div>
+
+<div class="card" id="page2" style="display:none;">
+    <h2>When are we meeting again? 🥺</h2>
+    <input type="text" placeholder="Type a date or time...">
+    <br>
+    <button class="yes" onclick="nextPage(3)">Next ➡️</button>
+</div>
+
+<div class="card" id="page3" style="display:none;">
+    <h2>Send me a smiling selfie 😊📸</h2>
+    <input type="file" accept="image/*">
+    <br>
+    <button class="yes" onclick="alert('Aww, thank you ❤️')">Done 💕</button>
+</div>
+
+<script>
+function nextPage(page){
+    document.querySelectorAll('.card').forEach(c=>c.style.display='none');
+    document.getElementById('page'+page).style.display='block';
+}
+
+// Make the NO button run away
+const noBtn = document.getElementById('noBtn');
+noBtn.addEventListener('mouseover', () => {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+</script>
+
+</body>
+</html>
